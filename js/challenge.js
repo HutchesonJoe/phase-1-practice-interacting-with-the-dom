@@ -32,21 +32,17 @@ function minusSecond(){
 }
 let heartClickCount = '0'
 
-likesObject = {
-  "num" : "likes",
-}
+let likesObject = {}
 
 function likeNumber(){
-  console.log("likeNumber marker")
-  // likesObject.push(number)
-  // console.log(likesObject)
-  // let list = document.getElementById("list");
-  // let p = document.createElement("p");
-  // p.setAttribute('id', `${number}`)
-  // console.log(p)
-  // list.appendChild(p)
-  // heartClickCount++
-  // p.textContent = `${heartClickCount}likes for ${number}.`
+  console.log(likesObject)
+  likesObject[number] = likesObject[number] || 0
+  likesObject[number]+=1
+  let list = document.getElementById("list");
+  let p = document.createElement("p");
+  console.log(p)
+  list.appendChild(p)
+  p.textContent = `${likesObject[number]}likes for ${number}.`
     
 }
 
@@ -67,7 +63,7 @@ function handlePause(){
 }
 
 function restartTimer(){
-  timer 
+  timer = setInterval(addSecond, 1000)
 }
 
 function stopTimer(){
@@ -88,7 +84,11 @@ function enableButtons(){
 
 function handleComments(event){
   event.preventDefault()
-  let comment = document.getElementById("comment-input")
-  console.log(form.elements)
+  let newComment = event.target.elements[0].value
+  let list = document.getElementById("list")
+  let p = document.createElement('p');
+  list.appendChild(p)
+  p.textContent = newComment 
+  form.reset()
   
 }
