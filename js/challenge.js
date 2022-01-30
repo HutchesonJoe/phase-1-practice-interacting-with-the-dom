@@ -18,13 +18,9 @@ let heartButton = document.getElementById("heart")
 let pauseButton = document.getElementById("pause")
   pauseButton.addEventListener("click", handlePause)
 
-// let form = document.querySelector("form");
-//   form.addEventListener('submit', handleComments);
+let form = document.querySelector("form");
+  form.addEventListener('submit', handleComments);
   
-  
-
-
-
 function addSecond(){
   number ++
   counter.textContent = number
@@ -71,7 +67,7 @@ function handlePause(){
 }
 
 function restartTimer(){
-  
+  timer 
 }
 
 function stopTimer(){
@@ -90,9 +86,9 @@ function enableButtons(){
   heartButton.addEventListener("click", likeNumber);
 }
 
-// function handleComments(event){
-//   event.preventDefault()
-//   let comment = document.getElementById("comment-input").
+function handleComments(event){
+  event.preventDefault()
+  let comment = document.getElementById("comment-input")
+  console.log(form.elements)
   
-  
-// }
+}
