@@ -2,7 +2,7 @@ const counter = document.getElementById("counter")
 let number = parseInt(counter.textContent, 10)
 
 
-let counterInt = setInterval(addSecond, 1000) 
+let timer = setInterval(addSecond, 1000)
 
 
 let minusButton = document.getElementById("minus")
@@ -18,6 +18,12 @@ let heartButton = document.getElementById("heart")
 let pauseButton = document.getElementById("pause")
   pauseButton.addEventListener("click", handlePause)
 
+// let form = document.querySelector("form");
+//   form.addEventListener('submit', handleComments);
+  
+  
+
+
 
 function addSecond(){
   number ++
@@ -30,19 +36,26 @@ function minusSecond(){
 }
 let heartClickCount = '0'
 
+likesObject = {
+  "num" : "likes",
+}
+
 function likeNumber(){
-  let list = document.getElementById("list");
-  let p = document.createElement("p");
-  p.setAttribute('id', `${number}`)
-  console.log(p)
-  let numberCount = document.getElementById(`${number}`)
-  console.log(numberCount)
-  // list.appendChild(numberCount)
-  heartClickCount++
-  numberCount.textContent = `${heartClickCount}likes for ${number}.`
+  console.log("likeNumber marker")
+  // likesObject.push(number)
+  // console.log(likesObject)
+  // let list = document.getElementById("list");
+  // let p = document.createElement("p");
+  // p.setAttribute('id', `${number}`)
+  // console.log(p)
+  // list.appendChild(p)
+  // heartClickCount++
+  // p.textContent = `${heartClickCount}likes for ${number}.`
+    
 }
 
 function handlePause(){
+  // debugger
   if (pauseButton.textContent === " pause ")
   //pausing
   {pauseButton.textContent = "resume";
@@ -51,18 +64,18 @@ function handlePause(){
 }
   ///resuming 
     else {pauseButton.textContent = " pause ";
-    startTimer();
+    restartTimer();
     enableButtons()
     
   }
 }
 
-function stopTimer(){
-  clearInterval(counterInt)
+function restartTimer(){
+  
 }
 
-function startTimer(){
-  setInterval(addSecond, 1000)
+function stopTimer(){
+  clearInterval(timer)
 }
 
 function disableButtons(){
@@ -76,3 +89,10 @@ function enableButtons(){
   minusButton.addEventListener("click", minusSecond);
   heartButton.addEventListener("click", likeNumber);
 }
+
+// function handleComments(event){
+//   event.preventDefault()
+//   let comment = document.getElementById("comment-input").
+  
+  
+// }
